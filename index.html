@@ -20,7 +20,7 @@
             </div>
             <label class="col-xs-2 control-label" for="interval">Interval duration (ms): </label>
             <div class="col-xs-2">
-                <input class="form-control" id="interval" type="text" value="10" />
+                <input class="form-control" id="interval" type="text" value="100" />
             </div>
             <label class="col-xs-2 control-label" for="dotSize">Dot size: </label>
             <div class="col-xs-2">
@@ -38,8 +38,6 @@
     <script type="text/javascript" src="js/brownian.js"></script>
     <script type="text/javascript">
         $("#btnRun").click(function() {
-            $("#drawing").empty();
-
             var iterations = $("#iterations").val();
             var interval = $("#interval").val();
             var dotSize = $("#dotSize").val();

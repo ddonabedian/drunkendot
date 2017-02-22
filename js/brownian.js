@@ -1,7 +1,7 @@
 var brownian = (function(brownian, $, undefined) {
     var iterations;
     var intervalDurationInMs;
-
+    var divName;
     var counter;
     var width;
     var height;
@@ -55,22 +55,35 @@ var brownian = (function(brownian, $, undefined) {
         counter++;
     };
 
+    var clear = function(divName) {
+        $("#" + divName).empty();
+
+        if (timer) {
+            clearInterval(timer);
+        }
+    };
+
     brownian.init = function(iterations, intervalDurationInMs, pointSize, divName) {
+        divName = divName;
+        var elem = $("#" + divName);
+        clear(divName);
         pointSize = pointSize || 1;
         iterations = iterations;
         intervalDurationInMs = intervalDurationInMs;
         counter = 0;
-        lastPosition = getCenter();
-        var elem = $("#" + divName);
+
         width = elem.width();
         height = elem.height();
+        lastPosition = getCenter();
+
         var params = { width: width, height: height };
         var elem = document.getElementById(divName);
         two = new Two(params).appendTo(elem);
         two.update();
-
         timer = setInterval(function() { updateDrawing(timer, pointSize); }, intervalDurationInMs);
     };
+
+
 
     return brownian;
 })(window.brownian || {}, jQuery);
