@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link href="css/style.css" rel="stylesheet">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
-    <form>
+    <form class="form-horizontal">
 
-        <div class="form-inline">
-
-            <label for="iterations" class="form-control">Iterations: </label>
-            <input id="iterations" type="text" value="1000" class="form-control" />
-
-
-            <label for="interval" class="form-control">Interval duration (ms): </label>
-            <input id="interval" type="text" value="10" class="form-control" />
-
-
-            <label for="dotSize" class="form-control">Dot size: </label>
-            <input id="dotSize" type="text" value="1" class="form-control" />
-
+        <div class="form-group">
+            <label class="col-xs-2 control-label" for="iterations">Iterations: </label>
+            <div class="col-xs-2">
+                <input class="form-control" id="iterations" type="text" value="1000" />
+            </div>
+            <label class="col-xs-2 control-label" for="interval">Interval duration (ms): </label>
+            <div class="col-xs-2">
+                <input class="form-control" id="interval" type="text" value="10" />
+            </div>
+            <label class="col-xs-2 control-label" for="dotSize">Dot size: </label>
+            <div class="col-xs-2">
+                <input class="form-control" id="dotSize" type="text" value="1" />
+            </div>
+            <input class="form-control" id="btnRun" type="button" value="Run!" />
         </div>
-        <input id="btnRun" type="button" value="Run!" class="form-control" />
-
-        <div id="drawing"></div>
-
     </form>
+
+    <div id="drawing"></div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
             var interval = $("#interval").val();
             var dotSize = $("#dotSize").val();
 
-            brownian.init(iterations, interval, dotSize);
+            brownian.init(iterations, interval, dotSize, "drawing");
         });
     </script>
 </body>

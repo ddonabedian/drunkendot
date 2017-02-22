@@ -55,16 +55,17 @@ var brownian = (function(brownian, $, undefined) {
         counter++;
     };
 
-    brownian.init = function(iterations, intervalDurationInMs, pointSize) {
+    brownian.init = function(iterations, intervalDurationInMs, pointSize, divName) {
         pointSize = pointSize || 1;
         iterations = iterations;
         intervalDurationInMs = intervalDurationInMs;
-        width = $(window).width();
-        height = $(window).height();
         counter = 0;
         lastPosition = getCenter();
-        var elem = document.getElementById('drawing');
+        var elem = $("#" + divName);
+        width = elem.width();
+        height = elem.height();
         var params = { width: width, height: height };
+        var elem = document.getElementById(divName);
         two = new Two(params).appendTo(elem);
         two.update();
 
